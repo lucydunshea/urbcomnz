@@ -1,0 +1,43 @@
+{% extends 'home/index.html' %}
+
+{% block body_class %}blog-page{% endblock %}
+
+{% block content %}
+    <h1>All Posts</h1>
+    <form method="get" action="">
+        <label for="category">Filter by Category:</label>
+        <select name="category" id="category">
+            <option value="">All</option>
+            {% for category in categories %}
+                <option value="{{ category.name }}" {% if selected_category == category.name %}selected{% endif %}>{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a>
+            <p>{{ post.created_on }}</p></li>
+        {% endfor %}
+    </ul>
+  <div>
+    <a href="{% url 'submit_post' %}" class="btn btn-primary">Submit a Post</a>
+  </div>
+{% endblock %}
+
+<!-- {% block page_content %}
+    {% block posts %}
+        {% for post in posts %}
+        <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
+        <small>
+            {{ post.created_on.date }} | Categories:
+            {% for category in post.categories.all %}
+                <a href="{% url 'blog_category' category.name %}">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </small>
+        <p>{{ post.body | slice:":400" }}...</p>
+    {% endfor %}
+{% endblock posts %}
+{% endblock page_content %} -->

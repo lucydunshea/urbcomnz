@@ -1,0 +1,117 @@
+{% extends 'home/index.html' %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+{% load static %}
+<!-- Background video -->
+<div class="video-container">
+    <video autoplay muted loop class="home-background-video">
+        <source src="{% static 'videos/copenhagen-streets-evening.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- hero title -->
+<div class="home-hero__title">
+    <h1 class="home-hero__title-heading">
+        Urban Design Insights <br> for Sustainable Communities.
+    </h1>
+</div>
+
+<!-- Scroll Down Arrow -->
+<div class="home__scroll-down-arrow">
+    <a href="#main-content">
+        <img src="{% static 'blog/down-arrow.png' %}" alt="Scroll Down">
+    </a>
+</div>
+
+<!--explanation hero section-->
+<div class="home-hero" id="main-content">
+    <div class="home-hero__container">
+        <div class="home-hero__description">
+            <h2 class="home-hero__description-heading">
+                Resilient communities are built through stronger engagement
+            </h2>
+            <p class="home-hero__description-purpose">
+                Urbcom is a media platform striving to communicate urban planning issues that impact sustainable development in New Zealand. We represent the voices of rangatahi at the start of our careers in the planning industry.
+            </p>
+        </div>
+        <div class="home-hero__projects">
+            <a class="home-hero__projects-link" href="{% url 'projects_index' %}">
+                <button class="home-hero__projects-button">Explore Projects</button>
+            </a>
+        </div>    
+    </div>
+</div>
+
+<!-- Article Content -->
+<div class="home-posts">
+    <!-- Latest Posts -->
+    <h3 class="home-posts__latest-heading">
+        Latest Posts
+    </h3>
+    <div class="latest-popular__container">
+        <div class="home-posts__latest">
+            <div class="home-posts__latest-cards">
+                <ul class="home-posts__latest-cards-list">
+                    {% for post in latest_posts %}
+                    <li class="home-posts__latest-detail">
+                        <a class="home-posts__latest-detail-link" href="{% url 'blog_detail' post.pk %}">
+                            {% if post.cover_photo %}
+                            <img class="home-posts__latest-detail-image" src="{{ post.cover_photo.url }}" alt="{{ post.title }}">
+                            {% endif %}
+                            <span>{{ post.title }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="home-posts__view-all-posts">
+                    <a class="home-posts__view-all-posts-link" href="{% url 'blog_index' %}">
+                        View All Posts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-posts__popular">
+        <!-- Popular Posts Section -->
+        <h3 class="home-posts__popular-heading">
+            Most Popular
+        </h3>
+        <ul class="home-posts__popular-cards-list">
+            {% for post in popular_posts %}
+            <li class="home-posts__popular-detail">
+                <a class="home-posts__popular-detail-list" href="{% url 'blog_detail' post.pk %}">
+                    {{ post.title }}
+                    <p class="home-posts__popular-detail-author">
+                        {{ post.author }} | {{ post.created_on|date:"F d, Y" }}
+                    </p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="home-posts__categories">
+        <!-- Articles by Category Section -->
+        <h2 class="home-posts__categories-heading">
+            Articles by Category
+        </h2>
+        {% for category, posts in category_articles.items %}
+        <h3 class="home-posts__categories-heading-specific">
+            {{ category.name }}
+        </h3>
+        <ul class="home-posts__categories-specific-list">
+            {% for post in posts %}
+            <li class="home-posts__categories-specific-detail">
+                <a href="{% url 'blog_detail' post.pk %}">
+                    {{ post.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

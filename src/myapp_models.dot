@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2024-11-11 10:34
+  // Created: 2024-11-11 20:22
   // Cli Options: -a --dot -o myapp_models.dot
 
   fontname = "Roboto"
@@ -725,6 +725,9 @@ digraph model_graph {
   blog_models_HitCount -> blog_models_Post
   [label=" post (hitcount)"] [arrowhead=none, arrowtail=dot, dir=both];
 
+
+  projects_models_Project -> blog_models_Category
+  [label=" categories (project)"] [arrowhead=dot arrowtail=dot, dir=both];
 
 
   django_contrib_admin_models_LogEntry -> django_contrib_auth_models_User

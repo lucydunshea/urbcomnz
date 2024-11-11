@@ -47,7 +47,47 @@
 
 <!-- Article Content -->
 <div class="home-posts">
-    <!-- Latest Posts -->
+    <!-- Principles Section -->
+    
+    <div class="home-posts__categories">
+        <!-- Articles by Category Section -->
+        <h2 class="home-posts__categories-heading">
+            Six Principles for Resilient Designs
+        </h2>
+        <p class="home-posts__categories-description">
+            These principles help to guide how to approach urban design in an uncertain world
+        </p>
+        {% for category, posts in category_articles.items %}
+        <h3 class="home-posts__categories-heading-specific">
+            {{ category.name }}
+        </h3>
+        <ul class="home-posts__categories-specific-list">
+            {% for post in posts %}
+            <li class="home-posts__categories-specific-detail">
+                <a href="{% url 'blog_detail' post.pk %}">
+                    {{ post.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+    <!-- Map of projects section -->
+    <div class="home-posts__map">
+        <h2 class="home-posts__map-heading">
+            Explore Projects
+        </h2>
+        <p class="home-posts__map-description">
+            Discover how these principles are applied in real-world projects
+        </p>    
+        <div class="home-posts__map-image">
+            <div id="map" class="home-posts__map-container">
+                <!-- Leaflet map goes here. -->
+                 
+            </div>
+        </div>  
+
+    <!-- Latest Posts Section -->
     <h3 class="home-posts__latest-heading">
         Latest Posts
     </h3>
@@ -91,26 +131,6 @@
             </li>
             {% endfor %}
         </ul>
-    </div>
-    <div class="home-posts__categories">
-        <!-- Articles by Category Section -->
-        <h2 class="home-posts__categories-heading">
-            Articles by Category
-        </h2>
-        {% for category, posts in category_articles.items %}
-        <h3 class="home-posts__categories-heading-specific">
-            {{ category.name }}
-        </h3>
-        <ul class="home-posts__categories-specific-list">
-            {% for post in posts %}
-            <li class="home-posts__categories-specific-detail">
-                <a href="{% url 'blog_detail' post.pk %}">
-                    {{ post.title }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
     </div>
 </div>
 

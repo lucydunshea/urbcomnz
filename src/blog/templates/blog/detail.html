@@ -4,52 +4,66 @@
 
 {% block content %}
 
+<link rel="stylesheet" type="text/css" href="\src\blog\static\blog\style.css">
 <!--Earlier/Later Post Buttons-->
-<div>
-    {% if previous_post %}
-        <a href="{% url 'blog_detail' previous_post.pk %}" class="nav-arrow nav-arrow-left">Earlier Post</a>
-    {% endif %}
-    {% if next_post %}
-        <a href="{% url 'blog_detail' next_post.pk %}" class="nav-arrow nav-arrow-right">Later Post</a>
-    {% endif %}
-</div>
-
-<!--Post in detail-->
-<h1> {{ post.title }} </h1>
-    <small>
-        {{ post.created_on.date }} | Categories:
-        {% for category in post.categories.all %}
-            <a href="{% url 'blog_category' category.name %}">
+<div class="blog-detail">
+    <div class="blog-detail__post">
+        <h1 class="blog-detail__post-heading"> {{ post.title }} </h1>
+        <small class="blog-detail__post-categories">
+            {{ post.created_on.date }} | Categories:
+            {% for category in post.categories.all %}
+            <a class="blog-detail__post-categories-link" href="{% url 'blog_category' category.name %}">
                 {{ category.name }}
             </a>
-        {% endfor %}
-    </small>
-    <div>
-    {{ post.content | safe }}
+            {% endfor %}
+        </small>
+        <div class="blog-detail__post-content">
+            {{ post.content | safe }}
+        </div>
+    </div>
+    <div class="blog-detail__post-arrows">
+        {% if previous_post %}
+            <a href="{% url 'blog_detail' previous_post.pk %}" class="blog-detail__post-arrow-earlier">Earlier Post</a>
+        {% endif %}
+        {% if next_post %}
+            <a href="{% url 'blog_detail' next_post.pk %}" class="blog-detail__post-arrow-later">Later Post</a>
+        {% endif %}
     </div>
 
-
     <!--Add Comments-->
-    <h3>Leave a comment:</h3>
-    <form method="post">
-        {% csrf_token %}
-        <div>
-            {{ form.author }}
-        </div>
-        <div>
-            {{ form.body }}
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <!--Show All Comments-->
-    <h3>Comments:</h3>
-    {% for comment in comments %}
+    <div class="blog-detail__comments-section">
+        <h3 class="blog-detail__comments-section-heading">Leave a comment:</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="blog-detail__comment-author">
+                {{ form.author }}
+            </div>
+            <div class="blog-detail__comment-body">
+                {{ form.body }}
+            </div>
+            <div class="blog-detail__comment-submit">
+                <button type="submit" class="blog-detail__comment-submit-button">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+        <!--Show All Comments-->
+    <div class="blog-detail__all-comments">
+    <h3 class="blog-detail__all-comments-heading">Comments:</h3>
+        {% for comment in comments %}
     <p>
         On {{comment.created_on.date}}, <b>{{ comment.author }}</b> wrote:
     </p>
     <p>
         {{ comment.body | linebreaks }}
     </p>
+</div>
+</div>
+</div>
     {% endfor %}
 {% endblock content %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/src/blog/static/blog/style.css">
+{% endblock %}

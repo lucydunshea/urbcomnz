@@ -1,0 +1,98 @@
+/* General styles for mobile first */
+body.blog-detail-page {
+    /* Base styles for the blog detail page */
+}
+
+.blog-detail {
+    /* Base styles for the blog detail container */
+}
+
+.blog-detail__post {
+    /* Base styles for the blog post container */
+}
+
+.blog-detail__post-heading {
+    /* Base styles for the blog post heading */
+}
+
+.blog-detail__post-categories {
+    /* Base styles for the post categories section */
+}
+
+.blog-detail__post-categories-link {
+    /* Base styles for the post categories links */
+}
+
+.blog-detail__post-content {
+    /* Base styles for the post content */
+}
+
+.blog-detail__post-arrows {
+    /* Base styles for the arrows container */
+}
+
+.blog-detail__post-arrow-earlier,
+.blog-detail__post-arrow-later {
+    /* Base styles for the earlier/later post links */
+}
+
+.blog-detail__comments-section {
+    /* Base styles for the comments section */
+}
+
+.blog-detail__comments-section-heading {
+    /* Base styles for the comments section heading */
+}
+
+.blog-detail__comment-author,
+.blog-detail__comment-body,
+.blog-detail__comment-submit {
+    /* Base styles for the comment form elements */
+}
+
+.blog-detail__comment-submit-button {
+    /* Base styles for the comment submit button */
+}
+
+.blog-detail__all-comments {
+    /* Base styles for the all comments section */
+}
+
+.blog-detail__all-comments-heading {
+    /* Base styles for the all comments heading */
+}
+
+/* Media queries */
+
+/* iPad (min-width: 768px) */
+@media (min-width: 768px) {
+    .blog-detail {
+        /* Adjustments for medium screens */
+    }
+    .blog-detail__post-heading {
+        /* Adjustments for medium screens */
+    }
+    /* Add other necessary styles for medium screens */
+}
+
+/* Desktop (min-width: 1025px) */
+@media (min-width: 1025px) {
+    .blog-detail {
+        /* Adjustments for large screens */
+    }
+    .blog-detail__post-heading {
+        /* Adjustments for large screens */
+    }
+    /* Add other necessary styles for large screens */
+}
+
+/* Widescreen (min-width: 1441px) */
+@media (min-width: 1441px) {
+    .blog-detail {
+        /* Adjustments for extra large screens */
+    }
+    .blog-detail__post-heading {
+        /* Adjustments for extra large screens */
+    }
+    /* Add other necessary styles for extra large screens */
+}

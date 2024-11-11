@@ -131,7 +131,7 @@ body, html {
     z-index: 1001;
     position: absolute;
     top: 2.5rem;
-    right: 6rem;
+    right: 3rem;
     transform: scale(0); /* Start with scale 0 */
     transition: transform 1s ease-in-out; /* Smooth transition */
 }
@@ -656,4 +656,10 @@ body, html {
 
 .home-posts__categories-specific-detail a:hover {
     
+}
+
+/* Blog Index Styling */
+
+.blog-page {
+    padding-top: 4rem;
 }

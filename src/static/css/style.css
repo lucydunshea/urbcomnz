@@ -7,7 +7,7 @@ body, html {
 }
 
 .page-color {
-    background-color: #FBFAF8;
+    background-color: #32312f;
 }
 
 .main-nav {
@@ -407,8 +407,8 @@ body, html {
 
 .home-posts {
     padding: 0 10px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 0%;
+    margin-right: 0%;
     max-width: 100%;
 }
 
@@ -631,7 +631,8 @@ body, html {
 }
 
 .home-posts__categories {
-    
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .home-posts__categories-heading {

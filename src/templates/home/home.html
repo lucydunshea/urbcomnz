@@ -4,6 +4,8 @@
 
 {% block content %}
 {% load static %}
+<link href="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
 <!-- Background video -->
 <div class="video-container">
     <video autoplay muted loop class="home-background-video">
@@ -81,7 +83,7 @@
             Discover how these principles are applied in real-world projects
         </p>    
         <div class="home-posts__map-image">
-            <div id="map" class="home-posts__map-container">
+            <div id="map" class="home-posts__map-container" style="height: 700px; width: 100%;"></div>
                 <!-- Leaflet map goes here. -->
                  
             </div>

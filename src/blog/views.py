@@ -36,6 +36,16 @@ def blog_category(request, category):
     }
     return render(request, "blog/category.html", context)
 
+# detailed principle page
+def category_detail(request, pk):
+    category = Category.objects.get(pk=pk)
+    posts = Post.objects.filter(categories=category)
+    context = {
+        "category": category,
+        "posts": posts,
+    }
+    return render(request, "blog/category_detail.html", context)
+
 # The Post in detail, on a seperate page
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)

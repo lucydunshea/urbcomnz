@@ -87,6 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#main-content').scrollIntoView({
                 behavior: 'smooth'
             });
+        } else if (currentScrollPosition <= initialScrollPosition) {
+            scrolled = false;
         }
     });
 

@@ -6,7 +6,9 @@ from ckeditor.fields import RichTextField
 class Category(models.Model):
     
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    short_description = models.TextField()
+    long_description = RichTextField(blank=True, null=True)
+    photos = models.ImageField(upload_to='images/', null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Categories"

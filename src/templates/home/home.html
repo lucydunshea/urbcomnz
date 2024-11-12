@@ -8,10 +8,11 @@
 <script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
 <!-- Background video -->
 <div class="video-container">
-    <video autoplay muted loop class="home-background-video">
+    <img src="{% static 'images/frikvarteret-1.png' %}" width="100%" alt="Urban Design Insights">
+    <!-- <video autoplay muted loop class="home-background-video">
         <source src="{% static 'videos/mountain-road-new-zealand.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
-    </video>
+    </video> -->
 </div>
 
 <!-- hero title -->
@@ -54,26 +55,29 @@
     <div class="home-posts__categories">
         <!-- Articles by Category Section -->
         <h2 class="home-posts__categories-heading">
-            Six Principles for Resilient Designs
+            Six Principles for Resilient Design
         </h2>
         <p class="home-posts__categories-description">
             These principles help to guide how to approach urban design in an uncertain world
         </p>
         {% for category, posts in category_articles.items %}
-        <h3 class="home-posts__categories-heading-specific">
-            {{ category.name }}
+        <h3 class="home-posts__categories-specific-detail">
+            <a href="{% url 'category_detail' category.pk %}">
+                {{ category.name }}
+            </a>
         </h3>
         <ul class="home-posts__categories-specific-list">
-            {% for post in posts %}
-            <li class="home-posts__categories-specific-detail">
-                <a href="{% url 'blog_detail' post.pk %}">
-                    {{ post.title }}
-                </a>
+            
+        <p class="home-posts__categories-specific-description">
+            {{ category.short_description }}
+        </p>
+        {% for post in posts %}
+            
             </li>
             {% endfor %}
         </ul>
         {% endfor %}
-    </div>
+    <!-- </div> -->
     <!-- Map of projects section -->
     <div class="home-posts__map">
         <h2 class="home-posts__map-heading">
@@ -83,8 +87,35 @@
             Discover how these principles are applied in real-world projects
         </p>    
         <div class="home-posts__map-image">
-            <div id="map" class="home-posts__map-container" style="height: 700px; width: 100%;"></div>
-                <!-- Leaflet map goes here. -->
+            <head>
+                <style> body { margin: 0; } </style>
+              
+                <script src="//unpkg.com/globe.gl"></script>
+              <!--  <script src="../../dist/globe.gl.js"></script>-->
+              </head>
+              
+              <body>
+                <div id="globeViz"></div>
+              
+                <script>
+                  // Gen random data
+                  const N = 300;
+                  const gData = [...Array(N).keys()].map(() => ({
+                    lat: (Math.random() - 0.5) * 180,
+                    lng: (Math.random() - 0.5) * 360,
+                    size: Math.random() / 3,
+                    color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+                  }));
+              
+                  Globe()
+                    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+                    .pointsData(gData)
+                    .pointAltitude('size')
+                    .pointColor('color')
+                  (document.getElementById('globeViz'))
+              
+                </script>
+              </body>
                  
             </div>
         </div>  

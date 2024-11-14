@@ -18,14 +18,14 @@
     <script src="{% static 'js/bundle.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    
+    <link rel="preload" href="{% static 'blog/white-word.png' %}" as="image">
     <!-- Additional block head content-->
     {% block head %}
     {% endblock %}
 
 </head>
 
-<body  class="{% block body_class %}{% endblock %}">
+<body  class="{% block body_class %}default-background{% endblock %}">
     <nav class="main-nav">
         <a href="/">
             <img class="main-nav__logo" src="{% static 'blog/white-word.png' %}">
@@ -65,19 +65,19 @@
         <div class="side-drawer__close" id="side-drawer-close">&times;</div>
         <ul class="side-drawer__menu">
             <li class="side-drawer__menu-item">
-                <a class="side-drawer__menu-item-link" href="/services/">SERVICES</a>
+                <a class="side-drawer__menu-item-link" href="/services/">Services.</a>
             </li>
             <li class="side-drawer__menu-item">
-                <a class="side-drawer__menu-item-link" href="/projects/">PROJECTS</a>
+                <a class="side-drawer__menu-item-link" href="/projects/">Projects.</a>
             </li>
             <li class="side-drawer__menu-item">
-                <a class="side-drawer__menu-item-link" href="/about-us/">ABOUT</a>
+                <a class="side-drawer__menu-item-link" href="/about-us/">About.</a>
             </li>
             <li class="side-drawer__menu-item">
-                <a class="side-drawer__menu-item-link" href="/blog/">CONTENT</a>
+                <a class="side-drawer__menu-item-link" href="/blog/">Gallery.</a>
             </li>
-            <li class="side-drawer__contact">
-                <a class="side-drawer__menu-item-link" href="/contact/">CONNECT</a>
+            <li class="side-drawer__menu-item">
+                <a class="side-drawer__menu-item-link" href="/contact/">Connect.</a>
             </li>
         </ul>
     </div>

@@ -10,7 +10,7 @@ document.getElementById('globe-container').appendChild(renderer.domElement);
 
 // Globe geometry and texture (replace with your terrain data if available)
 const globeRadius = 5;
-const globeGeometry = new THREE.SphereGeometry(globeRadius, 64, 64);
+const globeGeometry = new THREE.SphereGeometry(globeRadius, 128, 128);
 const globeMaterial = new THREE.MeshPhongMaterial({
     color: 0xffffff, // Set the globe color similar to the embossed look
     flatShading: true
@@ -75,3 +75,5 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+           

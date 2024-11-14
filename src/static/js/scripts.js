@@ -25,6 +25,18 @@ function scrollFunction() {
     }
 }
 
+//  add loading screen
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.classList.add('fade-out');
+        setTimeout(function() {
+            loadingScreen.style.display = 'none';
+        }, 500); // Match this duration with the CSS transition duration
+    }, 2000); // Adjust the delay time (2000ms = 2 seconds) as needed
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     const nav = document.querySelector(".main-nav");
     const hamburgerMenu = document.getElementById("hamburger-menu");

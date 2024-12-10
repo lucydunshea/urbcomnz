@@ -29,7 +29,7 @@ class Post(models.Model):
     
     title = models.CharField(max_length=100)
     cover_photo=models.ImageField(upload_to='images/', null=True, blank=True)
-    content = RichTextField()
+    content = RichTextField(config_name='awesome_ckeditor', blank=True, null=True)
     categories = models.ManyToManyField("Category", related_name="posts")
     author = models.CharField(max_length=100)
     description = models.TextField(max_length=200, null=True)

@@ -3,6 +3,11 @@ window.onscroll = function() {
     scrollFunction();
 };
 
+// Function to reload at top of page
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
 function scrollFunction() {
     var navbar = document.querySelector(".main-nav");
     var menuItems = document.querySelectorAll(".main-nav__menu-item-link");

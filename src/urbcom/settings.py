@@ -157,3 +157,21 @@ CKEDITOR_CONFIGS = {
             ]),
         },
 }
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+            ['Image'],
+            ['CodeSnippet']
+        ]
+    },
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+    },
+}

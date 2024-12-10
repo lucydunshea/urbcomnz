@@ -33,12 +33,13 @@
     <div class="home-hero__container">
         <div class="home-hero__description">
             <h2 class="home-hero__description-heading">
-                How can we approach resilience in an uncertain world?
+                How can we design for an uncertain future?
             </h2>
             <p class="home-hero__description-purpose">
-                The world around us is changing, and we know that to thrive, we need to change with it.
-                But knowing that something must change is not the same as knowing how to change.
-                Urbcom is New Zealand's one-stop shop for the why and how of resilient design.
+                The world around us is changing, and we know that to thrive, we need to change with it.<br>
+                But knowing that something must change is not the same as knowing how to change.<br>
+                Urbcom highlights transformative urban projects helping to build resilience in cities around the globe.<br>
+
             </p>
         </div>
         <!-- <div class="home-hero__projects">
@@ -120,24 +121,7 @@
             </div>
         </div>
     </div>
-    <div class="home-posts__popular">
-        <!-- Popular Posts Section -->
-        <h3 class="home-posts__popular-heading">
-            Most Popular
-        </h3>
-        <ul class="home-posts__popular-cards-list">
-            {% for post in popular_posts %}
-            <li class="home-posts__popular-detail">
-                <a class="home-posts__popular-detail-list" href="{% url 'blog_detail' post.pk %}">
-                    {{ post.title }}
-                    <p class="home-posts__popular-detail-author">
-                        {{ post.author }} | {{ post.created_on|date:"F d, Y" }}
-                    </p>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+    
 </div>
 
 {% endblock %}

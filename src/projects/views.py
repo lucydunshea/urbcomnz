@@ -13,5 +13,13 @@ def project_detail(request, pk):
     return render(request, "projects/detail.html", context)
 
 def project_locations(request):
-    projects = Project.objects.values('title', 'city', 'latitude', 'longitude')
+    projects = Project.objects.values('title', 'city', 'region')
     return JsonResponse(list(projects), safe=False)
+
+def project_region(request, region):
+    projects = Project.objects.filter(region=region).order_by('title')
+    context = {
+        'projects': projects,
+        'region': region
+    }
+    return render(request, "projects/region.html", context)
